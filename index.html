@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0f">
+  <meta name="description" content="Pobierz RomejroTV na Android TV, Google TV lub telefon z Androidem. Dwie wersje aplikacji w jednym miejscu.">
+  <title>Pobierz RomejroTV — Android TV i telefon</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b0f;
+      --panel: #18191e;
+      --edge: #303039;
+      --text: #f8f8fa;
+      --muted: #a4a5b1;
+      --accent: #ee283b;
+      --accent-hover: #ff4352;
+      --radius: 22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 600px;
+      content: "";
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(ellipse 48% 46% at 50% 5%, rgba(194, 29, 48, .16), transparent 78%);
+    }
+    a { color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: min(100% - 40px, 1050px); margin-inline: auto; }
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand-logo {
+      width: min(100%, 290px);
+      max-height: 58px;
+      object-fit: contain;
+    }
+    .brand-fallback {
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 900;
+      color: #f33143;
+      letter-spacing: -.04em;
+    }
+    .nav-link { text-decoration: none; color: #d4d4dc; font-size: 14px; font-weight: 600; }
+    .nav-link:hover { color: white; }
+    main { padding-bottom: 65px; }
+    .hero { text-align: center; padding: 83px 0 55px; }
+    .hero-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 26px;
+      padding: 0 8px;
+    }
+    .hero-logo {
+      width: min(100%, 680px);
+      filter: drop-shadow(0 16px 38px rgba(238, 40, 59, .24));
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f9b8bf;
+      background: rgba(236, 40, 60, .1);
+      border: 1px solid rgba(236, 40, 60, .22);
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+    }
+    .eyebrow-dot { background: #f43d50; width: 7px; height: 7px; border-radius: 50%; }
+    h1 {
+      max-width: 780px;
+      margin: 21px auto 18px;
+      font-size: clamp(37px, 6vw, 62px);
+      font-weight: 850;
+      line-height: 1.12;
+      letter-spacing: -.055em;
+    }
+    h1 span { color: #fb4051; }
+    .intro { max-width: 555px; margin: 0 auto; color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .download-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .download-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      background: linear-gradient(155deg, rgba(34, 35, 42, .95), rgba(21, 22, 27, .97));
+      border: 1px solid var(--edge);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+    .download-card:hover { border-color: #5f4049; transform: translateY(-3px); }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .device-icon {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(238, 40, 59, .11);
+      color: #ff5866;
+      border: 1px solid rgba(238, 40, 59, .14);
+    }
+    .device-icon svg { width: 34px; height: 34px; }
+    .type-pill {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      margin-top: 2px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: #2a2b32;
+      color: #d3d3dc;
+      font-size: 11px;
+      letter-spacing: .06em;
+      font-weight: 800;
+    }
+    .download-card h2 { font-size: 27px; letter-spacing: -.035em; line-height: 1.2; margin: 26px 0 10px; }
+    .card-description { min-height: 60px; margin: 0; line-height: 1.7; color: var(--muted); font-size: 15px; }
+    .card-rule { height: 1px; background: rgba(255,255,255,.09); margin: 25px 0 19px; }
+    .card-file {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 22px;
+      color: #c3c3cd;
+      font-size: 13px;
+      margin-bottom: 19px;
+    }
+    .card-file .file-name { overflow-wrap: anywhere; }
+    .file-size { flex-shrink: 0; color: #9899a6; }
+    .download-button {
+      min-height: 54px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border: 0;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .download-button:not(.disabled):hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .download-button svg { width: 19px; height: 19px; flex-shrink: 0; }
+    .download-button.disabled { pointer-events: none; cursor: not-allowed; color: #a8a8b2; background: #32333b; }
+    .card-message { margin: 13px 0 0; text-align: center; color: #8e909c; font-size: 12px; }
+    .how-to {
+      display: flex;
+      align-items: flex-start;
+      gap: 17px;
+      margin-top: 31px;
+      padding: 23px 27px;
+      background: rgba(255,255,255,.026);
+      border: 1px solid rgba(255,255,255,.085);
+      border-radius: 16px;
+    }
+    .info-icon {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      margin-top: 3px;
+      color: #d0d0dc;
+    }
+    .how-to h3 { font-size: 16px; margin: 0 0 8px; letter-spacing: -.01em; }
+    .how-to p { color: var(--muted); font-size: 14px; line-height: 1.75; margin: 0; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 23px 0 30px;
+      color: #898a96;
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    :focus-visible { outline: 3px solid #ff7581; outline-offset: 4px; }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 30px, 520px); }
+      .site-header { padding: 18px 0; flex-direction: column; align-items: flex-start; }
+      .brand-logo { max-height: 48px; width: min(100%, 220px); }
+      .brand-fallback { font-size: 23px; }
+      .hero { padding: 57px 0 39px; }
+      .hero-logo { width: min(100%, 460px); }
+      h1 { font-size: clamp(35px, 9.2vw, 49px); }
+      .intro { font-size: 15px; }
+      .download-grid { grid-template-columns: 1fr; gap: 16px; }
+      .download-card { padding: 25px; }
+      .card-description { min-height: auto; }
+      .how-to { padding: 21px; gap: 12px; }
+      .how-to p { font-size: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="RomejroTV — strona główna pobierania">
+        <img class="brand-logo" src="assets/logo.png" alt="RomejroTV" onerror="this.hidden=true;document.getElementById('brand-text').hidden=false">
+        <span class="brand-fallback" id="brand-text" hidden>ROMEJROTV</span>
+      </a>
+      <a class="nav-link" href="#instalacja">Jak zainstalować?</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-logo-wrap" id="hero-logo-wrap">
+          <img class="hero-logo" src="assets/logo.png" alt="RomejroTV" onerror="document.getElementById('hero-logo-wrap').hidden=true">
+        </div>
+        <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Oficjalne pliki APK</div>
+        <h1 id="hero-title">Pobierz aplikację <span>RomejroTV</span></h1>
+        <p class="intro">Wybierz wersję na swój sprzęt i pobierz aplikację. Prosto, szybko i bez zbędnych kroków.</p>
+      </section>
+
+      <section class="download-grid" aria-label="Wybierz wersję aplikacji">
+        <article class="download-card">
+          <div class="card-top">
+            <div class="device-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="15" rx="2"/><path d="M8 22h8m-4-4v4"/>
+              </svg>
+            </div>
+            <span class="type-pill">TV</span>
+          </div>
+          <h2>Android TV</h2>
+          <p class="card-description">Na telewizory, przystawki Android TV i urządzenia z Google TV.</p>
+          <div class="card-rule"></div>
+          <div class="card-file"><span class="file-name">app-tv-release.apk</span><span class="file-size">APK</span></div>
+          
+            <a class="download-button disabled" href="#" id="tv-download" aria-disabled="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg>
+              Pobierz na TV
+            </a>
+            <p class="card-message" id="tv-status">Sprawdzanie wersji...</p>
+        </article>
+
+        <article class="download-card">
+          <div class="card-top">
+            <div class="device-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>
+              </svg>
+            </div>
+            <span class="type-pill">PHONE</span>
+          </div>
+          <h2>Telefon Android</h2>
+          <p class="card-description">Na smartfony i inne urządzenia mobilne z systemem Android.</p>
+          <div class="card-rule"></div>
+          <div class="card-file"><span class="file-name">app-phone-release.apk</span><span class="file-size">APK</span></div>
+          
+            <a class="download-button disabled" href="#" id="phone-download" aria-disabled="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg>
+              Pobierz na telefon
+            </a>
+            <p class="card-message" id="phone-status">Sprawdzanie wersji...</p>
+        </article>
+      </section>
+
+      <section id="instalacja" class="how-to" aria-labelledby="install-title">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>
+        <div>
+          <h3 id="install-title">Jak zainstalować?</h3>
+          <p>Pobierz odpowiedni plik APK na urządzenie i otwórz go, aby rozpocząć instalację. Android może poprosić o zezwolenie na instalowanie aplikacji z wybranego źródła. Na telewizorze możesz też przenieść plik przez USB lub aplikację do przesyłania plików.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 RomejroTV</span>
+      <span>Wersje na Android TV i Android</span>
+    </footer>
+  </div>
+
+  <script>
+    // Linki do APK są odczytywane z plików OTA w GitHub Pages.
+    // Nie zmieniaj schematu istniejących update.json tylko po to, by obsłużyć stronę.
+    // Jeśli aplikacja używa nietypowej nazwy pola, podaj ją w extras poniżej.
+    const additionalLinks = { tv: '', phone: '' };
+
+    function findApkUrl(value, depth = 0) {
+      if (depth > 6 || value == null) return null;
+      if (typeof value === 'string') {
+        const url = value.trim();
+        return /^https:\/\/[^\s]+\.apk(?:[?#][^\s]*)?$/i.test(url) ? url : null;
+      }
+      if (typeof value !== 'object') return null;
+      const priority = [
+        'apkUrl', 'apk_url', 'downloadUrl', 'download_url', 'downloadLink',
+        'download_link', 'fileUrl', 'file_url', 'url', 'apk', 'download', 'file'
+      ];
+      for (const key of priority) {
+        if (Object.prototype.hasOwnProperty.call(value, key)) {
+          const found = findApkUrl(value[key], depth + 1);
+          if (found) return found;
+        }
+      }
+      for (const [key, v] of Object.entries(value)) {
+        if (!priority.includes(key)) {
+          const found = findApkUrl(v, depth + 1);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+
+    async function configureDownload(platform) {
+      const button = document.getElementById(platform + '-download');
+      const status = document.getElementById(platform + '-status');
+      try {
+        const response = await fetch(platform + '/update.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const update = await response.json();
+        const url = findApkUrl(update) || additionalLinks[platform];
+        if (!url || !url.startsWith('https://')) {
+          status.textContent = 'Brak adresu APK w pliku update.json';
+          return;
+        }
+        button.href = url;
+        button.classList.remove('disabled');
+        button.removeAttribute('aria-disabled');
+        status.textContent = 'Pobieranie z GitHub Releases';
+      } catch (error) {
+        status.textContent = 'Nie udało się pobrać informacji o aktualizacji';
+      }
+    }
+    document.getElementById('tv-download').addEventListener('click', e => {
+      if (e.currentTarget.getAttribute('aria-disabled') === 'true') e.preventDefault();
+    });
+    document.getElementById('phone-download').addEventListener('click', e => {
+      if (e.currentTarget.getAttribute('aria-disabled') === 'true') e.preventDefault();
+    });
+    configureDownload('tv');
+    configureDownload('phone');
+  </script>
+</body>
+</html>
