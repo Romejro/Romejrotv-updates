@@ -1,7 +1,7 @@
 {
   "versionCode": 2,
   "versionName": "1.0.1",
-  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/v1.0.1/app-phone-release.apk",
+  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/phone-v1.0.1/app-phone-release.apk",
   "changelog": "Wydanie 1.0.1: Nowy, ulepszony ekran logowania oraz poprawki paska nawigacji na telefonach.",
   "sha256": "896690898da4fceeaff04a07cceb6e56de43cb95d73aaa5b1cb0b491ed17c8d4",
   "minSdk": 24,
