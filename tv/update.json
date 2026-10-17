@@ -1,0 +1,9 @@
+{
+  "versionCode": 1,
+  "versionName": "1.0",
+  "apkUrl": "https://github.com/Romejro/Romejrotv-updates/releases/download/tv-v1.0.0/app-tv-release.apk",
+  "changelog": "Pierwsze oficjalne wydanie RomejroTV (Android TV).",
+  "sha256": "35b53c2391bfb7010799f53b816a157f310ec98d9a4d634f48d2173453e48c0a",
+  "minSdk": 24,
+  "sizeBytes": 132177225
+}
