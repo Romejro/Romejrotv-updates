@@ -1,9 +1,9 @@
 {
-  "versionCode": 3,
-  "versionName": "1.0.2",
-  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/phone-v1.0.2/app-phone-release.apk",
-  "changelog": "Wydanie 1.0.2: Nowa zakładka Mój profil (ważność konta RomejroTV, transfer i ważność konta TB7, funkcja losowania filmu oraz odświeżony wygląd).",
-  "sha256": "6fb6cfb5f0510a245010677b71b19f45bfb5fc6599df816ce69200960cf95472",
+  "versionCode": 4,
+  "versionName": "1.0.3",
+  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/phone-v1.0.3/app-phone-release.apk",
+  "changelog": "Wydanie 1.0.3: Konfiguracja konta TB7 w ustawieniach źródeł, etykieta EXTRA, opcja usuwania/porzucania pozycji w Kontynuuj oglądanie oraz optymalizacja resolvera VOE (szybkie wykrywanie 404).",
+  "sha256": "13943a5f4b96f14bd10c1c69b083020646c0a6b9cf813a68a7a0b3911fb52693",
   "minSdk": 24,
-  "sizeBytes": 237617462
+  "sizeBytes": 237634076
 }
