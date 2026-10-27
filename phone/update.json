@@ -3,7 +3,7 @@
   "versionName": "1.0.3",
   "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/phone-v1.0.3/app-phone-release.apk",
   "changelog": "Wydanie 1.0.3: Konfiguracja konta TB7 w ustawieniach źródeł, etykieta EXTRA, opcja usuwania/porzucania pozycji w Kontynuuj oglądanie oraz optymalizacja resolvera VOE (szybkie wykrywanie 404).",
-  "sha256": "13943a5f4b96f14bd10c1c69b083020646c0a6b9cf813a68a7a0b3911fb52693",
+  "sha256": "ae68a98910f6a1dd83ad00a36a8735e8f88d5d8e21c528b6fac830863b91c551",
   "minSdk": 24,
-  "sizeBytes": 237634076
+  "sizeBytes": 237634083
 }
