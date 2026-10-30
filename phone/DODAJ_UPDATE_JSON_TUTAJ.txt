@@ -1,1 +1,0 @@
-Wgraj do tego katalogu swój ORYGINALNY plik update.json Android Phone (lub dokładnie tę nazwę, której używa aplikacja). Nie zmieniaj struktury JSON. Zmień jedynie URL pliku APK na link wydania w GitHub Releases.
