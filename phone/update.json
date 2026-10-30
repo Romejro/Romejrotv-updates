@@ -1,9 +1,9 @@
 {
-  "versionCode": 4,
-  "versionName": "1.0.3",
-  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/phone-v1.0.3/app-phone-release.apk",
-  "changelog": "Wydanie 1.0.3: Konfiguracja konta TB7 w ustawieniach źródeł, etykieta EXTRA, opcja usuwania/porzucania pozycji w Kontynuuj oglądanie oraz optymalizacja resolvera VOE (szybkie wykrywanie 404).",
-  "sha256": "ae68a98910f6a1dd83ad00a36a8735e8f88d5d8e21c528b6fac830863b91c551",
+  "versionCode": 5,
+  "versionName": "1.0.4",
+  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/phone-v1.0.4/app-phone-release.apk",
+  "changelog": "Wydanie 1.0.4: Automatyczne zamykanie odtwarzacza po zakończeniu wideo/napisów, odliczanie 15s przy wyłączonym autoodtwarzaniu, zapytanie „Czy dalej oglądasz?” po 3 odcinkach bez interakcji oraz automatyczne zapytanie o powiadomienia po instalacji.",
+  "sha256": "86feead63120bdaa1f97ec99fc1cb8e385ba7f3718ef4b6657d472f180c1a335",
   "minSdk": 24,
-  "sizeBytes": 237634083
+  "sizeBytes": 237636338
 }
