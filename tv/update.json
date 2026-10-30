@@ -1,9 +1,9 @@
 {
-  "versionCode": 3,
-  "versionName": "1.0.2",
-  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/tv-v1.0.2/app-tv-release.apk",
-  "changelog": "Wydanie 1.0.2: Nowe rzędy platform (Netflix, Disney+, HBO/Max) w filmach i serialach, konfiguracja TB7, etykieta EXTRA, opcja usuwania/porzucania pozycji w Kontynuuj oglądanie oraz optymalizacja resolvera VOE (404).",
-  "sha256": "4a6035280e577b75bd4c84141773eaa1c85628cdcabead68ab39067e35b85370",
+  "versionCode": 4,
+  "versionName": "1.0.3",
+  "apkUrl": "https://github.com/romejro/Romejrotv-updates/releases/download/tv-v1.0.3/app-tv-release.apk",
+  "changelog": "Wydanie 1.0.3: Automatyczne zamykanie odtwarzacza po zakończeniu wideo/napisów, odliczanie 15s przy wyłączonym autoodtwarzaniu oraz zapytanie „Czy dalej oglądasz?” z odliczaniem 30s po 3 odcinkach bez użycia pilota.",
+  "sha256": "0a89bf008448a4519143a7aaa18d41d986005db124d25fea089036367081fd94",
   "minSdk": 24,
-  "sizeBytes": 132299789
+  "sizeBytes": 132300205
 }
